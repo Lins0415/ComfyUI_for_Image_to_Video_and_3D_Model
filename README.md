@@ -15,17 +15,27 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 
 
 1. Please use powershell/cmd to download the ComfyUI folder that I posted, and make sure you save that ComfyUI folder in your new disk drive that you created.
+
 2. Follow the instruction to download all the setup on the ComfyUI github link below.
+
 3. Then download all the package inside of the requirements text file in ComfyUI folder.
+
 4. After you complete, go to "custom_nodes" folder and download all the requirement package by using "pip install [package_name]" inside of each folder in "custom_nodes" folder.
+
 5. After you done, go back to the main ComfyUI folder and run "python main.py" on your powershell/command.
+
 6. While the coding script is running, you probably will see some packages haven't been install like "ModuleNotFoundError: No module named **'[package_name]'**". You can download the package inside of the ComfyUI folder by using "pip install [package name]".
+
 7. After all the packages are downloaded, check the coding process to make sure there are no error occur.
+
 8. Then, run the "python main.py" and it should be provided you a server link "http://127.0.0.1:8188".
+
 9. Copy the server link and paste it on the browser, you should be able to see the ComfyUI platform.
+
 10. Download the two Models and save inside "ComfyUI_for_Image_to_Video_and_3D_Model\models\checkpoints".
     a. model.ckpt (This model is for image to 3d. You can download it in "https://github.com/flowtyone/ComfyUI-Flowty-TripoSR")
     b. tooncrafter_512_interp-pruned-fp16.safetensors (This model is for image to video. You can download it in "https://huggingface.co/Doubiiu/DynamiCrafter_512_Interp")
+
 11. The another model that needs to be download and save inside "ComfyUI\models\vae".
     a. vae-ft-mse-840000-ema-pruned.ckpt (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.ckpt)
     b. vae-ft-mse-840000-ema-pruned.safetensors (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors)
