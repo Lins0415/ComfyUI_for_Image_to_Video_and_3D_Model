@@ -12,7 +12,7 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 ~~~Also, it supports Intel and AMD. ~~~
 ~~~You can use CUDA Environment if you have NVIDIA graphic card. (Run the environment on your powershell/cmd before you run the "python main.py" inside of the ComfyUI folder) ~~~
 
-
+~~~If you do not have a "Git", please download it by using this link: https://git-scm.com/downloads
 
 1. Please use powershell/cmd to download the ComfyUI folder that I posted, and make sure you save that ComfyUI folder in your new disk drive that you created.
 2. Follow the instruction to download all the setup on the ComfyUI github link below.
