@@ -1,0 +1,337 @@
+{
+  "last_node_id": 25,
+  "last_link_id": 44,
+  "nodes": [
+    {
+      "id": 14,
+      "type": "TripoSRModelLoader",
+      "pos": [
+        -596,
+        464
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "TRIPOSR_MODEL",
+          "type": "TRIPOSR_MODEL",
+          "shape": 3,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripoSRModelLoader"
+      },
+      "widgets_values": [
+        "model.ckpt",
+        8192
+      ]
+    },
+    {
+      "id": 13,
+      "type": "TripoSRViewer",
+      "pos": [
+        395.820068359375,
+        513.8280029296875
+      ],
+      "size": [
+        600,
+        500
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 15,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "TripoSRViewer"
+      },
+      "widgets_values": [
+        null
+      ]
+    },
+    {
+      "id": 18,
+      "type": "SaveImage",
+      "pos": [
+        20.636966705322266,
+        923.4573364257812
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "LoadImage",
+      "pos": [
+        -869,
+        696
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            39,
+            42
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "shape": 3,
+          "links": [
+            43
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00005_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "TripoSRSampler",
+      "pos": [
+        -79.5743408203125,
+        456.77044677734375
+      ],
+      "size": [
+        315,
+        122
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "TRIPOSR_MODEL",
+          "link": 16,
+          "slot_index": 0
+        },
+        {
+          "name": "reference_image",
+          "type": "IMAGE",
+          "link": 42,
+          "slot_index": 1
+        },
+        {
+          "name": "reference_mask",
+          "type": "MASK",
+          "shape": 7,
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MESH",
+          "type": "MESH",
+          "shape": 3,
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripoSRSampler"
+      },
+      "widgets_values": [
+        256,
+        25
+      ]
+    },
+    {
+      "id": 25,
+      "type": "InvertMask",
+      "pos": [
+        -500.0502624511719,
+        964.9846801757812
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            44
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 19,
+      "type": "Image Remove Background (rembg)",
+      "pos": [
+        -363.7557067871094,
+        777.5804443359375
+      ],
+      "size": [
+        390.5999755859375,
+        26
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Remove Background (rembg)"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      15,
+      12,
+      0,
+      13,
+      0,
+      "MESH"
+    ],
+    [
+      16,
+      14,
+      0,
+      12,
+      0,
+      "TRIPOSR_MODEL"
+    ],
+    [
+      39,
+      15,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      19,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      15,
+      0,
+      12,
+      1,
+      "IMAGE"
+    ],
+    [
+      43,
+      15,
+      1,
+      25,
+      0,
+      "MASK"
+    ],
+    [
+      44,
+      25,
+      0,
+      12,
+      2,
+      "MASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015777,
+      "offset": [
+        966.4325966796872,
+        -339.41452996826166
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
