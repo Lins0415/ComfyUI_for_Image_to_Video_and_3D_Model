@@ -23,7 +23,12 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 7. After all the packages are downloaded, check the coding process to make sure there are no error occur.
 8. Then, run the "python main.py" and it should be provided you a server link "http://127.0.0.1:8188".
 9. Copy the server link and paste it on the browser, you should be able to see the ComfyUI platform.
-
+10. Download the two Models and save inside "ComfyUI_for_Image_to_Video_and_3D_Model\models\checkpoints".
+    a. model.ckpt (This model is for image to 3d. You can download it in "https://github.com/flowtyone/ComfyUI-Flowty-TripoSR")
+    b. tooncrafter_512_interp-pruned-fp16.safetensors (This model is for image to video. You can download it in "https://huggingface.co/Doubiiu/DynamiCrafter_512_Interp")
+11. The another model that needs to be download and save inside "ComfyUI\models\vae".
+    a. vae-ft-mse-840000-ema-pruned.ckpt (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.ckpt)
+    b. vae-ft-mse-840000-ema-pruned.safetensors (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors)
 
 ~Please Review the ComfyUI References
 
