@@ -24,7 +24,7 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 
 5. After you done, go back to the main ComfyUI folder and run "python main.py" on your powershell/command.
 
-6. While the coding script is running, you probably will see some packages haven't been install like "ModuleNotFoundError: No module named **'[package_name]'**". You can download the package inside of the ComfyUI folder by using "pip install [package name]".
+6. While the coding script is running, you probably will see some packages haven't been install like "ModuleNotFoundError: No module named **'[package_name]'**". You can download the package inside of the ComfyUI folder by using "pip install [package name]" on powershell command.
 
 7. After all the packages are downloaded, check the coding process to make sure there are no error occur.
 
