@@ -40,6 +40,12 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
     a. vae-ft-mse-840000-ema-pruned.ckpt (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.ckpt)
     b. vae-ft-mse-840000-ema-pruned.safetensors (Here is the link: https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors)
 
+12. Then go to "ComfyUI_for_Image_to_Video_and_3D_Model\allworkflow". You can see 3 workflows in there and you can open it on top left corner on the ComfyUI platform.
+    a. tooncrafter_example_low_vram_01 (This workflow is for image to video.)
+    b. imageto3dworkflow_simple (This workflow is for image to 3d.)
+    c. stl3dformat (This workflow is for any 3d format convert into STL 3d format.)
+
+
 ~Please Review the ComfyUI References
 
 Reference for ComfyUI: https://github.com/comfyanonymous/ComfyUI
