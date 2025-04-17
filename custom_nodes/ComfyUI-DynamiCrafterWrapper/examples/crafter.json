@@ -1,0 +1,320 @@
+{
+    "3": {
+    "inputs": {
+    "vae_name": "F.1 FLUX.1-vae.sft"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+    "title": "VAE加载器"
+    }
+    },
+    "10": {
+    "inputs": {
+    "samples": [
+    "53",
+    0
+    ],
+    "vae": [
+    "3",
+    0
+    ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+    "title": "VAE解码"
+    }
+    },
+    "14": {
+    "inputs": {
+    "lora_name": "F.1-PVC手办风格_BETA版.safetensors",
+    "strength_model": 0.8,
+    "strength_clip": 1,
+    "model": [
+    "48",
+    0
+    ],
+    "clip": [
+    "49",
+    0
+    ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+    "title": "LoRA加载器"
+    }
+    },
+    "24": {
+    "inputs": {
+    "filename_prefix": "ComfyUI",
+    "images": [
+    "69",
+    0
+    ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+    "title": "保存图像"
+    }
+    },
+    "48": {
+    "inputs": {
+    "unet_name": "flux1-dev-fp8.safetensors",
+    "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+    "title": "UNET加载器"
+    }
+    },
+    "49": {
+    "inputs": {
+    "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+    "clip_name2": "clip_l.safetensors",
+    "type": "flux"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+    "title": "双CLIP加载器"
+    }
+    },
+    "50": {
+    "inputs": {
+    "width": image2imge_data_from_request['width'],
+    "height": image2imge_data_from_request['height'],
+    "batch_size": 4
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+    "title": "空Latent"
+    }
+    },
+    "51": {
+    "inputs": {
+    "text": [
+    "72",
+    0
+    ],
+    "clip": [
+    "49",
+    0
+    ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+    "title": "CLIP文本编码器"
+    }
+    },
+    "52": {
+    "inputs": {
+    "text": "",
+    "clip": [
+    "49",
+    0
+    ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+    "title": "CLIP文本编码器"
+    }
+    },
+    "53": {
+    "inputs": {
+    "seed": get_seed_for_comfyui(),
+    "steps": 20,
+    "cfg": 1,
+    "sampler_name": "euler",
+    "scheduler": "simple",
+    "denoise": 1,
+    "model": [
+    "14",
+    0
+    ],
+    "positive": [
+    "57",
+    0
+    ],
+    "negative": [
+    "57",
+    1
+    ],
+    "latent_image": [
+    "50",
+    0
+    ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+    "title": "K采样器"
+    }
+    },
+    "57": {
+    "inputs": {
+    "strength": 0.5,
+    "start_percent": 0,
+    "end_percent": 1,
+    "positive": [
+    "51",
+    0
+    ],
+    "negative": [
+    "52",
+    0
+    ],
+    "control_net": [
+    "58",
+    0
+    ],
+    "image": [
+    "59",
+    0
+    ],
+    "vae": [
+    "3",
+    0
+    ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+    "title": "ControlNet应用（旧版高级）"
+    }
+    },
+    "58": {
+    "inputs": {
+    "control_net_name": "flux-depth-controlnet-v3.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+    "title": "ControlNet加载器"
+    }
+    },
+    "59": {
+    "inputs": {
+    "preprocessor": "Zoe-DepthMapPreprocessor",
+    "resolution": 512,
+    "image": [
+    "63",
+    0
+    ]
+    },
+    "class_type": "AIO_Preprocessor",
+    "_meta": {
+    "title": "Aux集成预处理器"
+    }
+    },
+    "60": {
+    "inputs": {
+    "image": self.filename,
+    "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+    "title": "加载图像"
+    }
+    },
+    
+    "62": {
+    "inputs": {
+    "model": "General.safetensors",
+    "device": "AUTO",
+    "use_weight": False
+    },
+    "class_type": "LoadRembgByBiRefNetModel",
+    "_meta": {
+    "title": "LoadRembgByBiRefNetModel"
+    }
+    },
+    "63": {
+    "inputs": {
+    "model": [
+    "62",
+    0
+    ],
+    "images": [
+    "60",
+    0
+    ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+    "title": "RembgByBiRefNet"
+    }
+    },
+    
+    "69": {
+    "inputs": {
+    "upscale_by": 2,
+    "seed": get_seed_for_comfyui(),
+    "steps": 20,
+    "cfg": 8,
+    "sampler_name": "euler",
+    "scheduler": "normal",
+    "denoise": 0.2,
+    "mode_type": "Linear",
+    "tile_width": 512,
+    "tile_height": 512,
+    "mask_blur": 8,
+    "tile_padding": 32,
+    "seam_fix_mode": "None",
+    "seam_fix_denoise": 1,
+    "seam_fix_width": 64,
+    "seam_fix_mask_blur": 8,
+    "seam_fix_padding": 16,
+    "force_uniform_tiles": False,
+    "tiled_decode": False,
+    "image": [
+    "10",
+    0
+    ],
+    "model": [
+    "48",
+    0
+    ],
+    "positive": [
+    "51",
+    0
+    ],
+    "negative": [
+    "52",
+    0
+    ],
+    "vae": [
+    "3",
+    0
+    ],
+    "upscale_model": [
+    "70",
+    0
+    ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+    "title": "SD放大"
+    }
+    },
+    "70": {
+    "inputs": {
+    "model_name": "4x-UltraSharp.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+    "title": "放大模型加载器"
+    }
+    },
+    "72": {
+    "inputs": {
+    "from_translate": "auto",
+    "to_translate": "english",
+    "add_proxies": False,
+    "proxies": "",
+    "auth_data": "",
+    "service": "GoogleTranslator",
+    "text": image2imge_data_from_request['prompt'],
+    "Show proxy": "proxy_hide",
+    "Show authorization": "authorization_hide"
+    },
+    "class_type": "DeepTranslatorTextNode",
+    "_meta": {
+    "title": "翻译文本(高级)"
+    }
+    }
+    }
