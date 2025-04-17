@@ -28,7 +28,7 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 
 7. After all the packages are downloaded, check the coding process to make sure there are no error occur.
 
-8. Then, run the "python main.py" and it should be provided you a server link "http://127.0.0.1:8188".
+8. Then, run the "python main.py" and it should be provide you a server link "http://127.0.0.1:8188".
 
 9. Copy the server link and paste it on the browser, you should be able to see the ComfyUI platform.
 
