@@ -15,7 +15,7 @@ Notes: Of course, you don't have to follow my recommend if you have enough capac
 
 
 1. Please use powershell/cmd to download the ComfyUI folder that I posted, and make sure you save that ComfyUI folder in your new disk drive that you created.
-
+    a. "git clone https://github.com/Lins0415/ComfyUI_for_Image_to_Video_and_3D_Model.git"
 2. Follow the instruction to download all the setup on the ComfyUI github link below.
 
 3. Then download all the package inside of the requirements text file in ComfyUI folder.
